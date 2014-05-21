@@ -1,0 +1,23 @@
+<html>
+<head>
+ <title> test js</title>
+ <script type="text/javascript"> 
+ function calculatearea(width,height){
+ area = width * height
+ return area
+ }
+ </script>
+</head>
+<body>
+<form name="frmarea" >
+ enter the width and height of your rectangle to calculate the size:<br />
+ width:<input type="text" name="txtwidth" size="5" /><br />
+ height:<input type="text" name="txtheight" size="5" /><br />
+ <input type="button" value="calculate area"
+ onclick="alert(calculatearea(document.frmarea.txtwidth.value,document.frmarea.txtheight.value))" />
+
+</form>
+</body>
+
+
+</html>

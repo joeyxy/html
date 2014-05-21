@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>E-mail form</title>
+
+<script type="text/javascript">
+
+</script>
+<style type="text/css">
+
+.to{
+ width:200px;
+ float:left;}
+
+.address{
+  width:500px;
+  float:left;
+    }
+
+</style>
+</head>
+
+<body>
+<form name="frmemail" onsubmit="return validate(this)" action="sendmail.aspx">
+<div class="to">
+ <div class="label">Send to:</div>
+ <div class="input"><input type="text" size="70" name="txtto" /></div>
+
+ <div class="label">CC:</div>
+ <div class="input"><input type="text" size="70" name="txtcc" /></div>
+
+ <div class="label">Subject:</div>
+ <div class="input"><input type="text" size="70" name="txtsubject" /></div>
+
+
+</div>
+
+<div class="address">
+Quick address book:< br />
+<select size="2" name="selectlist1" style="width:150px">
+ <option value="support@ex.org">support</option>
+ <option value="it@ex.org">IT</option>
+</select><br />
+</div>
+
+Message:<br />
+<textarea name="message" row="200" cols="115"></textarea><br />
+<input type="button" value="Send E-mail">
+
+</form>
+</body>
+
+
+</html>

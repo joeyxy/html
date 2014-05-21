@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>test for js</title>
+
+<script type="text/javascript">
+ function validate(form){
+ var returnvalue = true;
+ var username = frmregister.txtusername.value;
+
+ if(username.length < 6){
+ returnvalue = false;
+ alert("your frmregister.txtusername.name must be at least\n6 characters long.\n");
+ frmregister.txtusername.focus();
+ }
+ }
+
+</script>
+
+</head>
+
+<body>
+ <form name="frmregister" method="post" action="" onsubmit="return validate(this);">
+ <div class="label"> <label for="txtusername">username:</label></div>
+ <div>
+ <input type="text" name="txtusername" id="txtusername" size="12" />
+ </div>
+ password:<input type="pasword" name="txtpassword" id="txtpassword" size="12">
+
+ <input type="submit" value="log in">
+</form>
+</body>
+
+</html>
