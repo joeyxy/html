@@ -1,0 +1,11 @@
+table {
+   border-style:solid;
+     }
+tr.odd {
+    background-color:#cccccc;
+    }
+
+td {
+     padding:2px;
+     }
+
