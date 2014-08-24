@@ -1,0 +1,15 @@
+WAN信息
+
+描述	类型	状态	IPv4地址
+1_TR069_R_VID_46	IPoE	Connected	10.145.42.9
+2_VOIP_R_VID_45	IPoE	Connected	189.100.12.42
+3_INTERNET_R_VID_1206	PPPoE	Connected	100.64.149.176
+4_Other_B_VID_43	Bridge	Connected	 
+
+
+网络信息
+
+缺省网关	100.64.0.1 
+子网掩码	255.255.255.255 
+首选DNS服务器	61.139.2.69 
+备用DNS服务器	218.6.200.139 
