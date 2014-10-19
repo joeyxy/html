@@ -19,7 +19,7 @@
     $allowed = array('image/pjpeg','image/PNG','image/jpeg','image/JPG','image/X-PNG','image/png','image/x-png');
     if(in_array($_FILES['upload']['type'],$allowed)){
      if(move_uploaded_file($_FILES['upload']['tmp_name'],"../uploads/{$_FILES['upload']['name']}")){
-     echo '<p><em>The file has been uploaded!</em></p>';
+     echo '<p><em>The file :'. $_FILES['upload']['name'].' has been uploaded!</em></p>';
      }
     }else{
     echo '<p class="error">Please upload a JPEG or PNG image.</p>';
