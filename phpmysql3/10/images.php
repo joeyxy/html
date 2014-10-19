@@ -28,6 +28,26 @@
             <td align="center"><b>Image Name</b></td>
             <td align="center"><b>Image Size</b></td>
         </tr>
+
+<?php
+  $dir = '../uploads';
+  $files = scandir($dir);
+
+  foreach($files as $image){
+   echo "$image";
+   if(substr($images,0,1) != '.'){
+    $image_size = getimagesize("$dir/$image");
+
+    $file_size = round((filesize("$dir/$image"))/1024)."kb";
+
+    $image = urlencode($image);
+
+    echo "\t<tr>\t\t<td><a href=\"javascript:create_window('$image',$image_size[0]),$image_size[1])\">$image</a></td>\t\t<td>$file_size</td> \t</tr>\n";
+   }
+}
+
+
+?>
     </table>
     </body>
 </html>
