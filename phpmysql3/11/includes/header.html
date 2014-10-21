@@ -1,0 +1,23 @@
+<html lang="en">
+
+
+  <head>
+   <title><?php echo $page_title; ?> </title>
+   <link rel="stylesheet" href="includes/style.css" type="text/css" />
+  </head>
+  <body>
+  <div id="header">
+  <h1>Your website</h1>
+  <h2>catchy slogan...</h2>
+  </div>
+
+  <div id="navigation">
+   <ul>
+    <li><a href="index.php">home page</li>
+    <li><a href="register.php">register</li>
+    <li><a href="view_users.php">view users</li>
+    <li><a href="password.php">change password</li>
+    <li><?php if((isset($_COOKIE['user_id']))&&(!strpos($_SERVER['PHP_SELF'],'logout.php'))){echo '<a href="logout.php">logout</a>';}else{echo '<a href="login.php">Login</a>';}?></li>
+   </ul>
+  </div>
+  <div id="content">
