@@ -15,7 +15,7 @@
 
    $body = wordwrap($body,70);
 
-   mail('xiangyang@digisky.com','Contact Form Submission',$body,"From:{$_POST['email']}");
+   mail('joey.x@icloud.com','Contact Form Submission',$body,"From:{$_POST['email']}");
 
    echo '<p><em>Thank you for contacting me.i will replay some day.</em></p>';
 
